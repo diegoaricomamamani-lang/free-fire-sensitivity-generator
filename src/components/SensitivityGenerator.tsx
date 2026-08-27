@@ -144,7 +144,7 @@ export default function SensitivityGenerator() {
             <li>✅ Elige tu estilo de juego preferido</li>
             <li>✅ Copia los valores y pégalos en Free Fire</li>
             <li>✅ Guarda tus perfiles favoritos para después</li>
-            <li>✅ Estos valores están calibrados para máxima precisión (0-200)</li>
+            <li>✅ Rango 0-200: Calibración profesional para máxima precisión</li>
           </ul>
         </div>
       </div>

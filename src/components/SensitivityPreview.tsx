@@ -77,7 +77,7 @@ export default function SensitivityPreview({
           <strong>💡 Pro Tips para No Fallar:</strong>
         </p>
         <ul className="text-xs text-blue-200 space-y-1">
-          <li>✓ Usa el Punto Rojo en combates cercanos</li>
+          <li>✓ Usa Punto Rojo en combates cercanos</li>
           <li>✓ Mira 4x para media distancia</li>
           <li>✓ Francotirador para precisión máxima</li>
           <li>✓ Cámara 360° para giros rápidos</li>
@@ -87,7 +87,7 @@ export default function SensitivityPreview({
       {/* Calibration Info */}
       <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
         <p className="text-sm text-green-300">
-          🎮 <strong>Calibración Profesional:</strong> Estos valores están diseñados para máxima precisión sin fallos. Probados con jugadores pro.
+          🎮 <strong>Calibración Profesional:</strong> Rango 0-200. Diseñado para máxima precisión sin fallos. Probado con jugadores pro.
         </p>
       </div>
     </div>
