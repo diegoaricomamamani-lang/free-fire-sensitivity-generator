@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Device, GameStyle } from '@/utils/sensitivityCalculator';
 
 interface ControlPanelProps {
@@ -12,6 +12,7 @@ interface ControlPanelProps {
   onDeviceChange: (device: string) => void;
   onDPIChange: (dpi: number) => void;
   onGameStyleChange: (style: string) => void;
+  onSaveProfile: (name: string) => void;
 }
 
 export default function ControlPanel({
@@ -23,7 +24,19 @@ export default function ControlPanel({
   onDeviceChange,
   onDPIChange,
   onGameStyleChange,
+  onSaveProfile,
 }: ControlPanelProps) {
+  const [showSaveInput, setShowSaveInput] = useState(false);
+  const [profileName, setProfileName] = useState('');
+
+  const handleSave = () => {
+    if (profileName.trim()) {
+      onSaveProfile(profileName);
+      setProfileName('');
+      setShowSaveInput(false);
+    }
+  };
+
   return (
     <div className="glass rounded-xl p-8 space-y-6">
       <h2 className="text-2xl font-bold mb-6">⚙️ Configuración</h2>
@@ -81,6 +94,46 @@ export default function ControlPanel({
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Save Profile */}
+      <div className="border-t border-white/10 pt-6">
+        {!showSaveInput ? (
+          <button
+            onClick={() => setShowSaveInput(true)}
+            className="w-full py-3 bg-green-500/20 border border-green-500/50 rounded-lg font-semibold text-green-300 hover:bg-green-500/30 transition-all duration-300"
+          >
+            💾 Guardar Perfil
+          </button>
+        ) : (
+          <div className="space-y-3">
+            <input
+              type="text"
+              placeholder="Nombre del perfil (ej: Agresivo MP40)"
+              value={profileName}
+              onChange={(e) => setProfileName(e.target.value)}
+              className="input-field"
+              autoFocus
+            />
+            <div className="flex gap-2">
+              <button
+                onClick={handleSave}
+                className="flex-1 py-2 bg-green-500 rounded-lg font-semibold hover:bg-green-600 transition-all"
+              >
+                ✅ Guardar
+              </button>
+              <button
+                onClick={() => {
+                  setShowSaveInput(false);
+                  setProfileName('');
+                }}
+                className="flex-1 py-2 bg-red-500 rounded-lg font-semibold hover:bg-red-600 transition-all"
+              >
+                ❌ Cancelar
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Info Box */}
