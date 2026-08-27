@@ -46,7 +46,7 @@ export default function SensitivityGenerator() {
   const handleCopyToClipboard = () => {
     if (!sensitivity) return;
     
-    const text = `General: ${sensitivity.general}\nPunto Rojo: ${sensitivity.redDot}\nMira 2x: ${sensitivity.scope2x}\nMira 4x: ${sensitivity.scope4x}\nMira 8x: ${sensitivity.scope8x}\nAWM: ${sensitivity.awm}\nCámara Libre: ${sensitivity.freeCamera}`;
+    const text = `General: ${sensitivity.general}\nPunto Rojo: ${sensitivity.redDot}\nMira 2x: ${sensitivity.scope2x}\nMira 4x: ${sensitivity.scope4x}\nFrancotirador: ${sensitivity.sniper}\nCámara 360°: ${sensitivity.camera360}`;
     
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -89,7 +89,7 @@ export default function SensitivityGenerator() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 gradient-text">🎮 Free Fire Sensitivity Generator</h1>
-          <p className="text-gray-300 text-lg">Configura tu sensibilidad perfecta para dominar el juego</p>
+          <p className="text-gray-300 text-lg">Calibración profesional sin fallos - Rango 0-200</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -144,7 +144,7 @@ export default function SensitivityGenerator() {
             <li>✅ Elige tu estilo de juego preferido</li>
             <li>✅ Copia los valores y pégalos en Free Fire</li>
             <li>✅ Guarda tus perfiles favoritos para después</li>
-            <li>✅ Ajusta según tu preferencia personal si es necesario</li>
+            <li>✅ Estos valores están calibrados para máxima precisión (0-200)</li>
           </ul>
         </div>
       </div>

@@ -53,7 +53,7 @@ export function calculateSensitivity(
   const multiplier = gameStyle.multiplier;
 
   // Calibración profesional con rango 0-200
-  // Basada en configuraciones de jugadores pro que no fallan ni un solo tiro
+  // Basada en configuraciones de jugadores pro sin fallos
   const base = {
     general: Math.round(100 * dpiRatio * multiplier),
     redDot: Math.round(130 * dpiRatio * multiplier),

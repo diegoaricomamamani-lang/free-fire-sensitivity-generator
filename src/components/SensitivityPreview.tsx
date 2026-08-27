@@ -87,7 +87,7 @@ export default function SensitivityPreview({
       {/* Calibration Info */}
       <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
         <p className="text-sm text-green-300">
-          🎯 <strong>Calibración Profesional:</strong> Estos valores están diseñados para máxima precisión sin fallos. Probados con jugadores pro.
+          🎮 <strong>Calibración Profesional:</strong> Estos valores están diseñados para máxima precisión sin fallos. Probados con jugadores pro.
         </p>
       </div>
     </div>
