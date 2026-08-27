@@ -1,0 +1,1 @@
+{\n  "name": "free-fire-sensitivity-generator",\n  "buildCommand": "npm run build",\n  "framework": "nextjs",\n  "nodeVersion": "18.x"\n}\n
