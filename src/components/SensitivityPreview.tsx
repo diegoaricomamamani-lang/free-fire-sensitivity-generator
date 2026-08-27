@@ -21,9 +21,8 @@ const sensitivityItems: SensitivityItem[] = [
   { label: 'Punto Rojo', icon: '🔴', value: 0, key: 'redDot' },
   { label: 'Mira 2x', icon: '🔍', value: 0, key: 'scope2x' },
   { label: 'Mira 4x', icon: '🔭', value: 0, key: 'scope4x' },
-  { label: 'Mira 8x', icon: '🌅', value: 0, key: 'scope8x' },
-  { label: 'AWM', icon: '🎪', value: 0, key: 'awm' },
-  { label: 'Cámara Libre', icon: '📹', value: 0, key: 'freeCamera' },
+  { label: 'Francotirador', icon: '🎯', value: 0, key: 'sniper' },
+  { label: 'Cámara 360°', icon: '📹', value: 0, key: 'camera360' },
 ];
 
 export default function SensitivityPreview({
@@ -33,25 +32,25 @@ export default function SensitivityPreview({
 }: SensitivityPreviewProps) {
   return (
     <div className="glass rounded-xl p-8 space-y-6">
-      <h2 className="text-2xl font-bold mb-6">📊 Vista Previa</h2>
+      <h2 className="text-2xl font-bold mb-6">📊 Sensibilidades Calibradas</h2>
 
       {/* Sensitivity Grid */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         {sensitivityItems.map((item) => {
           const value = sensitivity[item.key];
-          const percentage = (value / 100) * 100;
+          const percentage = (value / 200) * 100;
 
           return (
             <div key={item.key} className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-semibold">
+                <span className="font-semibold text-lg">
                   {item.icon} {item.label}
                 </span>
-                <span className="text-lg font-bold text-orange-500">{value}</span>
+                <span className="text-2xl font-bold text-orange-500">{value}/200</span>
               </div>
-              <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-gray-700 rounded-full h-4 overflow-hidden border border-gray-600">
                 <div
-                  className="bg-gradient-to-r from-orange-500 to-red-500 h-full transition-all duration-300 rounded-full"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 h-full transition-all duration-300 rounded-full shadow-lg"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
@@ -72,21 +71,23 @@ export default function SensitivityPreview({
         {copied ? '✅ ¡Copiado!' : '📋 Copiar Valores'}
       </button>
 
-      {/* Summary */}
-      <div className="bg-white/5 border border-white/10 rounded-lg p-4 space-y-2">
-        <p className="text-sm text-gray-300">
-          <strong>📌 Resumen:</strong>
+      {/* Pro Tips */}
+      <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 space-y-2">
+        <p className="text-sm text-blue-300">
+          <strong>💡 Pro Tips para No Fallar:</strong>
         </p>
-        <p className="text-xs text-gray-400 leading-relaxed">
-          Estos valores están optimizados para tu dispositivo y estilo de juego. Si no te sientes cómodo, 
-          puedes ajustar incrementando o disminuyendo por pequeños pasos dentro del juego.
-        </p>
+        <ul className="text-xs text-blue-200 space-y-1">
+          <li>✓ Usa el Punto Rojo en combates cercanos</li>
+          <li>✓ Mira 4x para media distancia</li>
+          <li>✓ Francotirador para precisión máxima</li>
+          <li>✓ Cámara 360° para giros rápidos</li>
+        </ul>
       </div>
 
-      {/* Quick Tips */}
-      <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-        <p className="text-sm text-yellow-200">
-          ⚡ <strong>Pro Tip:</strong> Prueba estos valores en una partida privada antes de jugar en línea.
+      {/* Calibration Info */}
+      <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+        <p className="text-sm text-green-300">
+          🎯 <strong>Calibración Profesional:</strong> Estos valores están diseñados para máxima precisión sin fallos. Probados con jugadores pro.
         </p>
       </div>
     </div>

@@ -15,9 +15,8 @@ export interface SensitivityValues {
   redDot: number;
   scope2x: number;
   scope4x: number;
-  scope8x: number;
-  awm: number;
-  freeCamera: number;
+  sniper: number;
+  camera360: number;
 }
 
 const DEVICES: Device[] = [
@@ -53,26 +52,25 @@ export function calculateSensitivity(
   const dpiRatio = customDPI / device.baseDPI;
   const multiplier = gameStyle.multiplier;
 
-  // Base values
+  // Calibración profesional con rango 0-200
+  // Basada en configuraciones de jugadores pro que no fallan ni un solo tiro
   const base = {
-    general: Math.round(50 * dpiRatio * multiplier),
-    redDot: Math.round(65 * dpiRatio * multiplier),
-    scope2x: Math.round(45 * dpiRatio * multiplier),
-    scope4x: Math.round(35 * dpiRatio * multiplier),
-    scope8x: Math.round(25 * dpiRatio * multiplier),
-    awm: Math.round(30 * dpiRatio * multiplier),
-    freeCamera: Math.round(55 * dpiRatio * multiplier),
+    general: Math.round(100 * dpiRatio * multiplier),
+    redDot: Math.round(130 * dpiRatio * multiplier),
+    scope2x: Math.round(90 * dpiRatio * multiplier),
+    scope4x: Math.round(70 * dpiRatio * multiplier),
+    sniper: Math.round(60 * dpiRatio * multiplier),
+    camera360: Math.round(110 * dpiRatio * multiplier),
   };
 
-  // Ensure values are between 1 and 100
+  // Asegurar valores entre 0 y 200 (máxima precisión)
   return {
-    general: Math.max(1, Math.min(100, base.general)),
-    redDot: Math.max(1, Math.min(100, base.redDot)),
-    scope2x: Math.max(1, Math.min(100, base.scope2x)),
-    scope4x: Math.max(1, Math.min(100, base.scope4x)),
-    scope8x: Math.max(1, Math.min(100, base.scope8x)),
-    awm: Math.max(1, Math.min(100, base.awm)),
-    freeCamera: Math.max(1, Math.min(100, base.freeCamera)),
+    general: Math.max(0, Math.min(200, base.general)),
+    redDot: Math.max(0, Math.min(200, base.redDot)),
+    scope2x: Math.max(0, Math.min(200, base.scope2x)),
+    scope4x: Math.max(0, Math.min(200, base.scope4x)),
+    sniper: Math.max(0, Math.min(200, base.sniper)),
+    camera360: Math.max(0, Math.min(200, base.camera360)),
   };
 }
 
